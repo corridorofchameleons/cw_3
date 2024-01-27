@@ -1,6 +1,6 @@
 import json
 
-FILE_PATH = '../data/operatins.json'
+FILE_PATH = '../data/operations.json'
 
 
 def get_data(file_path):
@@ -13,7 +13,3 @@ def get_data(file_path):
     data_filtered = [d for d in data if d.get('state') == 'EXECUTED']
     data_filtered.sort(key=lambda k: k.get('date'), reverse=True)
     return data_filtered[:5]
-
-
-
-
