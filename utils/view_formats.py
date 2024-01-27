@@ -2,11 +2,13 @@ from _datetime import datetime
 
 
 def encrypt_source(source):
-    data = source.split()
-    if data[0] == 'Счет':
-        return encrypt_acc(data)
-    else:
-        return encrypt_card(data)
+    if source:
+        data = source.split()
+        if data[0] == 'Счет':
+            return encrypt_acc(data)
+        else:
+            return encrypt_card(data)
+    return 'undefined'
 
 
 def encrypt_acc(data):

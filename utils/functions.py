@@ -1,9 +1,9 @@
 import json
 
-FILE_PATH = '../data/operations.json'
+FILE_PATH = 'data/operations.json'
 
 
-def get_data(file_path):
+def get_data(file_path=FILE_PATH):
     try:
         with open(file_path) as file:
             data = json.load(file)
