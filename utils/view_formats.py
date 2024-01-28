@@ -2,6 +2,11 @@ from _datetime import datetime
 
 
 def encrypt_source(source):
+    '''
+    Chooses an encryption function depending on a source
+    :param source: str; Acc No or Card No
+    :return: 'undefined' if source does not exist
+    '''
     if source:
         data = source.split()
         if data[0] == 'Счет':
@@ -12,11 +17,17 @@ def encrypt_source(source):
 
 
 def encrypt_acc(data):
+    '''
+    Returns encrypted acc no
+    '''
     enc_acc_no = '*' + data[-1][-4:]
     return data[0] + ' ' + enc_acc_no
 
 
 def encrypt_card(data) -> str:
+    '''
+    Returns encrypted card no
+    '''
     paym_sys = ' '.join(data[:-1]) + ' '
     card_no = data[-1]
 
@@ -25,6 +36,11 @@ def encrypt_card(data) -> str:
 
 
 def format_date(source_date):
+    '''
+    Transfoms ISO datetime format into Russian date format
+    :param source_date: str ISO format
+    :return: str readable format
+    '''
     try:
         dt = datetime.fromisoformat(source_date)
         return dt.strftime('%d.%m.%Y')

@@ -1,9 +1,13 @@
-from utils.functions import get_data
+from utils.functions import get_data, FILE_PATH
 from utils.view_formats import encrypt_source, format_date
 
 
 def main():
-    client_data = get_data()
+    '''
+    Shows latest 5 successful bank operations
+    :return: None
+    '''
+    client_data = get_data(FILE_PATH)
     print()
 
     for op in client_data:
